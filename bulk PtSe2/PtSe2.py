@@ -69,7 +69,7 @@ def band_calc():
             lcharg=False,
             lorbit=11)            # SOC band structure calculator
     atoms.get_potential_energy()
-    e_nk = calc.band_structure().energies[0].T - ef    # band data with reference to Fermi level
+    e_nk = calc.band_structure().energies[0].T - ef    # band data relative to Fermi level
     path = atoms.cell.bandpath('GMKGALHA',npoints=800)
     x, X, _ = path.get_linear_kpoint_axis()
     np.savetxt('band/e_nk.dat',e_nk)   # save the e_nk data
