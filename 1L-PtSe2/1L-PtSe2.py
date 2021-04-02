@@ -50,7 +50,7 @@ def band_calc(atoms):
             lorbit=11)           # SOC band calculator
     atoms.get_potential_energy()
     homo, lumo = calc.get_homo_lumo()       # get the HOMO and LUMO from band calculation
-    e_nk = calc.band_structure().energies[0].T - homo     # get band data with reference to HOMO
+    e_nk = calc.band_structure().energies[0].T - homo     # get band data relative to HOMO
     path = atoms.cell.bandpath('MKGM',npoints=200)
     x, X, _ = path.get_linear_kpoint_axis()
     np.savetxt('band/e_nk.dat',e_nk)           # save the band data
